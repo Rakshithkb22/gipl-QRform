@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worki on button functionality</title>
+</head>
+<body>
+    <div id="root">
+        <form action="">
+
+        </form>
+        <button onclick="myFunction()">Add</button>
+    </div>
+    <script>
+        function myFunction() {
+            const myForm = document.querySelector('form');
+            const inputFile = document.createElement('input');
+            const brTag =  document.createElement('br');
+            inputFile.setAttribute('type', 'file');
+            inputFile.setAttribute('accept', '.jpg, .png');
+            myForm.appendChild(inputFile);
+            myForm.appendChild(brTag);
+        }
+    </script>
+</body>
+</html>
