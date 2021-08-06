@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    <div id="root">
+        <form action="">
+
+        </form>
+    </div>
+    <script>
+        const h1Tag = document.querySelector('h1')
+        const myForm = document.querySelector('form')
+        // input field 1
+        const input1 = document.createElement('input')
+        input1.setAttribute('type', 'text')
+        input1.setAttribute('placeholder', 'Enter the Name')
+
+        //input field 2
+        const input2 = document.createElement('input')
+        input2.setAttribute('type', 'text')
+        input2.setAttribute('placeholder', 'Enter the QRC Value')
+
+        // get the count 
+        const inputValue = document.createElement('input')
+        inputValue.setAttribute('onkeydown', 'myFunction(this)') 
+
+        let inputFile
+        const formElement = document.getElementById('formElement')
+
+        //building form
+        myForm.appendChild(input1)
+        for(let i = 0; i < 2; i++) {
+            const brTag = document.createElement('br')
+            myForm.appendChild(brTag)
+        }
+        myForm.appendChild(input2)
+        for(let i = 0; i < 2; i++) {
+            const brTag = document.createElement('br')
+            myForm.appendChild(brTag)
+        }
+        myForm.appendChild(inputValue)
+        /* for(let i = 0; i < 2; i++) {
+            const brTag = document.createElement('br')
+            myForm.appendChild(brTag)
+        } */
+
+        const divTag = document.createElement('div')
+        myForm.appendChild(divTag)
+
+        function myFunction(ele) {
+            if(event.key === 'Enter') {
+                // console.log(ele.value)
+                inputValue.style.display = 'none'
+                let val = ele.value
+                for(let i = 0; i < val; i++) {
+                    inputFile = document.createElement('input')
+                    inputFile.setAttribute('type', 'file')
+                    inputFile.setAttribute('accept', '.jpg, .png')
+                    /* for(let i = 0; i < 2; i++) {
+                    const brTag = document.createElement('br')
+                    .appendChild(brTag)
+                    } */
+                    divTag.appendChild(inputFile)
+                    const brTag = document.createElement('br')
+                    divTag.appendChild(brTag)
+                }
+            }
+        }
+
+        // input submit
+        const brTag = document.createElement('br')
+        myForm.appendChild(brTag)
+        const inputSubmit = document.createElement('input')
+        inputSubmit.setAttribute('type', 'submit')
+        inputSubmit.setAttribute('value', 'Submit')
+        myForm.appendChild(inputSubmit)
+        inputSubmit.addEventListener('click', function(e) {
+            e.preventDefault()
+            const val1 = input1.value;
+            const val2 = input2.value;
+            h1Tag.textContent = `My name is ${val1} ${val2}`
+            myForm.reset()
+        })
+    </script>
+</body>
+</html>
